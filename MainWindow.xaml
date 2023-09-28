@@ -1,0 +1,225 @@
+﻿<Window x:Class="CalculatorTryTwo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorTryTwo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="350"
+        KeyDown="KeyboardInputTextBox_KeyDown"
+
+        >
+    <Window.Background>
+        <SolidColorBrush Color="Azure" />
+    </Window.Background>
+    
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Background" Value="MistyRose"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="LightPink"/>
+            <Setter Property="Foreground" Value="RosyBrown"/>
+        </Style>
+        <Style x:Key="OperatorButton" TargetType="Button">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Background" Value="LightYellow"/>
+        <Setter Property="Foreground" Value="BurlyWood"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="BorderBrush" Value="LightGoldenrodYellow"/>
+
+
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <!-- This is for the output -->
+            <RowDefinition Height="100"/> 
+            <!-- These are for the numbers -->
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <!-- Takes remaining space -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            Background="AntiqueWhite"
+            BorderBrush="BlanchedAlmond"
+            BorderThickness="3"
+            CornerRadius="5"
+            />
+   
+            <TextBlock 
+         Margin="5"
+         x:Name="OutputTextBlock"
+         Grid.Row="0"
+         Grid.Column="0"
+         Grid.ColumnSpan="4"
+         FontSize="43"
+         FontWeight="DemiBold"
+         TextAlignment="Right"
+         VerticalAlignment="Bottom"
+         Text=""
+         Foreground="IndianRed"
+        />
+        <Button 
+            x:Name="SevenButton"
+            Content="7"
+            Grid.Row="1"
+            Grid.Column="0"
+            FontSize="23"
+            FontWeight="DemiBold"
+            Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="EightButton"
+         Content="8"
+         Grid.Row="1"
+        Grid.Column="1"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="NineButton"
+         Content="9"
+         Grid.Row="1"
+        Grid.Column="2"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="FourButton"
+         Content="4"
+         Grid.Row="2"
+        Grid.Column="0"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="FiveButton"
+         Content="5"
+         Grid.Row="2"
+        Grid.Column="1"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="SixButton"
+         Content="6"
+         Grid.Row="2"
+        Grid.Column="2"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="OneButton"
+         Content="1"
+         Grid.Row="3"
+        Grid.Column="0"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="TwoButton"
+         Content="2"
+         Grid.Row="3"
+        Grid.Column="1"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="ThreeButton"
+         Content="3"
+         Grid.Row="3"
+        Grid.Column="2"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+        <Button 
+         x:Name="ZeroButton"
+         Content="0"
+         Grid.Row="4"
+        Grid.Column="1"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="NumberButton_Click"
+        />
+                <Button 
+         x:Name="ClearButton"
+         Content="CL"
+         Grid.Row="4"
+        Grid.Column="0"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="ClearButton_Click"
+        Style="{StaticResource OperatorButton}" />
+        
+                <Button 
+         x:Name="DivideButton"
+         Content=""
+         Grid.Row="1"
+        Grid.Column="3"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="DivideButton_Click"
+        Style="{StaticResource OperatorButton}" />
+        
+                <Button 
+         x:Name="TimesButton"
+         Content="*"
+         Grid.Row="2"
+        Grid.Column="3"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="TimesButton_Click"
+        Style="{StaticResource OperatorButton}" />
+        
+                <Button 
+         x:Name="MinusButton"
+         Content="-"
+         Grid.Row="3"
+        Grid.Column="3"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="MinusButton_Click"
+         Style="{StaticResource OperatorButton}" />
+        
+                <Button 
+         x:Name="PlusButton"
+         Content="+"
+         Grid.Row="4"
+        Grid.Column="3"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="PlusButton_Click"
+        Style="{StaticResource OperatorButton}" />
+        
+                <Button 
+         x:Name="EqualsButton"
+         Content="="
+         Grid.Row="4"
+        Grid.Column="2"
+        FontSize="23"
+        FontWeight="DemiBold"
+        Click="EqualsButton_Click"
+        Style="{StaticResource OperatorButton}" />
+               
+    </Grid>
+</Window>
